@@ -67,8 +67,8 @@ const readAll = async (req: Request, res: Response) => {
 			totalItems: count,
 			totalPages,
 			currentPage: page,
-			nextPage: nextPage ? `${req.protocol}://${req.headers.host}?page=${nextPage}` : null,
-			prevPage: prevPage ? `${req.protocol}://${req.headers.host}?page=${prevPage}` : null,
+			nextPage: nextPage ? `${req.protocol}://${req.headers.host}/computer?page=${nextPage}` : null,
+			prevPage: prevPage ? `${req.protocol}://${req.headers.host}/computer?page=${prevPage}` : null,
 		};
 
 		response(res, 200, "OK", { result, meta });
