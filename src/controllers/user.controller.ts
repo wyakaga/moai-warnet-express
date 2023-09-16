@@ -106,4 +106,39 @@ const readSingle = async (req: Request, res: Response) => {
 	}
 };
 
-export default { create, readAll, readSingle };
+const update = async (req: Request, res: Response) => {
+	try {
+		const { id } = req.params;
+		const { hour } = req.body;
+
+		const checkUser = await prisma.user.findUnique({
+			where: {
+				id,
+			},
+		});
+
+		if (!checkUser) {
+			return response(res, 400, "No such user exist!");
+		}
+
+		const price = Number(hour) * 3000;
+
+		const updatedData = {
+			balance: checkUser.balance - price,
+		};
+
+		const data = await prisma.user.update({
+			where: {
+				id,
+			},
+			data: updatedData,
+		});
+
+		response(res, 200, "Updated successfully!", data);
+	} catch (error) {
+		console.log(error);
+		response(res, 500, "Internal Server Error", (error as Error).message);
+	}
+};
+
+export default { create, readAll, readSingle, update };
