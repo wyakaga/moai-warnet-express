@@ -93,4 +93,30 @@ const readSingle = async (req: Request, res: Response) => {
 	}
 };
 
-export default { create, readAll, readSingle };
+const update = async (req: Request, res: Response) => {
+	try {
+		const { id } = req.params;
+		const { isUsed, userId } = req.body;
+
+		const checkComputer = await prisma.computer.findUnique({ where: { id } });
+
+		if (!checkComputer) return response(res, 400, "No such computer exist!");
+
+		const updatedData = {
+			isUsed: String(isUsed).toLowerCase() === "true" ? true : false,
+			userId: String(userId),
+		};
+
+		const data = await prisma.computer.update({
+			where: { id },
+			data: updatedData,
+		});
+
+		response(res, 200, "Updated successfully!", data);
+	} catch (error) {
+		console.log(error);
+		response(res, 500, "Internal Server Error", (error as Error).message);
+	}
+};
+
+export default { create, readAll, readSingle, update };
