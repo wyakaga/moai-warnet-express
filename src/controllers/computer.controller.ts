@@ -119,4 +119,21 @@ const update = async (req: Request, res: Response) => {
 	}
 };
 
-export default { create, readAll, readSingle, update };
+const destroy = async (req: Request, res: Response) => {
+	try {
+		const { id } = req.params;
+
+		const checkComputer = await prisma.computer.findUnique({ where: { id } });
+
+		if (!checkComputer) return response(res, 400, "No such computer exist!");
+
+		const data = await prisma.computer.delete({ where: { id } });
+
+		response(res, 200, "Deleted successfully", data);
+	} catch (error) {
+		console.log(error);
+		response(res, 500, "Internal Server Error", (error as Error).message);
+	}
+};
+
+export default { create, readAll, readSingle, update, destroy };

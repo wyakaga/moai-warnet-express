@@ -8,5 +8,6 @@ computerRouter.post("/", computerController.create);
 computerRouter.get("/", computerController.readAll);
 computerRouter.get("/:id", computerController.readSingle);
 computerRouter.patch("/:id", computerController.update);
+computerRouter.delete("/:id", computerController.destroy);
 
 export default computerRouter;
