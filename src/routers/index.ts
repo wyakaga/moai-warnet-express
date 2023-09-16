@@ -10,7 +10,14 @@ mainRouter.use("/user", userRouter);
 mainRouter.use("/computer", computerRouter);
 
 mainRouter.get("/", async (req: Request, res: Response) => {
-	response(res, 200, "OK", "Welcome!");
+	response(res, 200, "OK", {
+		authors: [
+			{
+				alias: "wyakaga",
+				repository: "http://github.com/wyakaga",
+			},
+		],
+	});
 });
 
 export default mainRouter;
