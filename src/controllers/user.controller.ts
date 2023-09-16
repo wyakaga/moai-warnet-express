@@ -141,4 +141,25 @@ const update = async (req: Request, res: Response) => {
 	}
 };
 
-export default { create, readAll, readSingle, update };
+const destroy = async (req: Request, res: Response) => {
+	try {
+		const { id } = req.params;
+
+		const checkUser = await prisma.user.findUnique({
+			where: { id },
+		});
+
+		if (!checkUser) return response(res, 400, "No such user exist!");
+
+		const data = await prisma.user.delete({
+			where: { id },
+		});
+
+		response(res, 200, "Deleted succesfully!", data);
+	} catch (error) {
+		console.log(error);
+		response(res, 500, "Internal Server Error", (error as Error).message);
+	}
+};
+
+export default { create, readAll, readSingle, update, destroy };
