@@ -1,0 +1,285 @@
+{
+    "info": {
+        "_postman_id": "448ec658-bc29-4e00-b23a-f2a3367b5fcf",
+        "name": "moai-warnet",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "user",
+            "item": [
+                {
+                    "name": "delete user",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "localhost:8080/user/65056c64f439cd07ca571156",
+                            "path": [
+                                "user",
+                                "65056c64f439cd07ca571156"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                },
+                {
+                    "name": "update user",
+                    "request": {
+                        "method": "PATCH",
+                        "url": {
+                            "raw": "localhost:8080/user/650559e26c9440f21995bb33",
+                            "path": [
+                                "user",
+                                "650559e26c9440f21995bb33"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "hour",
+                                    "value": "2"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "read single user",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/user/650559e26c9440f21995bb33",
+                            "path": [
+                                "user",
+                                "650559e26c9440f21995bb33"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                },
+                {
+                    "name": "read all user",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/user?search=a&order=rich&page&limit",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "a"
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "rich"
+                                },
+                                {
+                                    "key": "page",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": ""
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "user"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                },
+                {
+                    "name": "create user",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:8080/user",
+                            "path": [
+                                "user"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "username",
+                                    "value": "kanagawa"
+                                },
+                                {
+                                    "key": "balance",
+                                    "value": "3000000"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "computer",
+            "item": [
+                {
+                    "name": "create computer",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:8080/computer",
+                            "path": [
+                                "computer"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "computerNumber",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "isUsed",
+                                    "value": "false"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "read all computer",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/computer?group=false&order=asc&page&limit",
+                            "query": [
+                                {
+                                    "key": "group",
+                                    "value": "false"
+                                },
+                                {
+                                    "key": "order",
+                                    "value": "asc"
+                                },
+                                {
+                                    "key": "page",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": ""
+                                }
+                            ],
+                            "variable": [],
+                            "path": [
+                                "computer"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                },
+                {
+                    "name": "read single computer",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/computer/65057b7d7a5a6a798cfec5dd",
+                            "path": [
+                                "computer",
+                                "65057b7d7a5a6a798cfec5dd"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                },
+                {
+                    "name": "update computer",
+                    "request": {
+                        "method": "PATCH",
+                        "url": {
+                            "raw": "localhost:8080/computer/65057b7d7a5a6a798cfec5dd",
+                            "path": [
+                                "computer",
+                                "65057b7d7a5a6a798cfec5dd"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "isUsed",
+                                    "value": "true"
+                                },
+                                {
+                                    "key": "userId",
+                                    "value": "650559e26c9440f21995bb33"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "delete computer",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "localhost:8080/computer/6505804aa53f8dd77fe693d6",
+                            "path": [
+                                "computer",
+                                "6505804aa53f8dd77fe693d6"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "main route",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:8080",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        }
+    ]
+}
