@@ -29,7 +29,7 @@ npm install
 DATABASE_URL = [your MongoDB url]
 ```
 
-<p>7. Seed database</p>
+<p>5. Seed database</p>
 
 ```bash
 npx prisma generate
