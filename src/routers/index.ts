@@ -2,10 +2,10 @@ import { Request, Response, Router } from "express";
 
 import { response } from "../utils/response";
 
-const router: Router = Router();
+const mainRouter: Router = Router();
 
-router.get("/", async (req: Request, res: Response) => {
+mainRouter.get("/", async (req: Request, res: Response) => {
 	response(res, 200, "OK", "Welcome!");
 });
 
-export default router;
+export default mainRouter;

@@ -1,16 +1,21 @@
 import "dotenv/config";
 import express from "express";
+import morgan from "morgan";
 
-import router from "./src/routers";
+import mainRouter from "./src/routers";
 
 const app = express();
 const PORT = 8080;
 
+app.use(
+  morgan(":method :url :status :res[content-length] - :response-time ms")
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(router);
+app.use(mainRouter);
 
 app.listen(PORT, () => {
-	console.log(`⚡️[server]: Server is running at port ${PORT}`);
+  console.log(`⚡️[server]: Server is running at port ${PORT}`);
 });
