@@ -6,5 +6,6 @@ const computerRouter: Router = Router();
 
 computerRouter.post("/", computerController.create);
 computerRouter.get("/", computerController.readAll);
+computerRouter.get("/:id", computerController.readSingle);
 
 export default computerRouter;
