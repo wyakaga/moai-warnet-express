@@ -89,4 +89,21 @@ const readAll = async (req: Request, res: Response) => {
 	}
 };
 
-export default { create, readAll };
+const readSingle = async (req: Request, res: Response) => {
+	try {
+		const { id } = req.params;
+
+		const data = await prisma.user.findUnique({
+			where: {
+				id,
+			},
+		});
+
+		response(res, 200, "OK", data);
+	} catch (error) {
+		console.log(error);
+		response(res, 500, "Internal Server Error", (error as Error).message);
+	}
+};
+
+export default { create, readAll, readSingle };
